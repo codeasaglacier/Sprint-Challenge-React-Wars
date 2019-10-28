@@ -11,16 +11,17 @@ const App = () => {
   // sync up with, if any.
 
   const [people, setPeople] = useState([])
+  console.log(people)
 
   useEffect(() => {
     axios
       .get('https://swapi.co/api/people/1/') 
       .then(response => {
-        console.log(response)
+        console.log(`Response: ${response}`)
         setPeople(response.data)
       })
       .catch(error => {
-        console.log(error)
+        console.log(`Error: ${error}`)
       }
       )
     }, [])
