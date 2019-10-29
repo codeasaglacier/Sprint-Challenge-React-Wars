@@ -11,17 +11,17 @@ const App = () => {
   // sync up with, if any.
 
   const [people, setPeople] = useState([])
-  console.log(people)
+  console.log(people.results)
 
   useEffect(() => {
     axios
-      .get('https://swapi.co/api/people/1/') 
+      .get('https://swapi.co/api/people/') 
       .then(response => {
-        console.log(`Response: ${response}`)
+        console.log(`Response: ${response.data.results}`)
         setPeople(response.data)
       })
       .catch(error => {
-        console.log(`Error: ${error}`)
+        console.log(error)
       }
       )
     }, [])
@@ -38,7 +38,7 @@ const SWCard = props => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      {people.map((person, i) => {
+      {people.results.map((person, i) => {
         return(
           <div>
             <SWCard
