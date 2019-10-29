@@ -30,7 +30,11 @@ const SWCard = props => {
   return (
     <div className="characterCards">
       <h2>Character: {props.name}</h2>
+      <p>Height: {props.height}</p>
+      <p>Mass: {props.mass}</p>
+      <p>Gender: {props.gender}</p>
       <p>Hair Color: {props.head_fuzz}</p>
+      <p>Eye Color: {props.eye_color}</p>
       <p>{props.banana}</p>
     </div>
   )
@@ -45,7 +49,11 @@ const SWCard = props => {
             <SWCard
               banana = {banana}
               name = {person.name}
+              height = {person.height}
+              mass = {person.mass}
+              gender = {person.gender}
               head_fuzz = {person.hair_color}
+              eye_color = {person.eye_color}
               />
           </div>
         )
