@@ -28,7 +28,7 @@ const App = () => {
 
 const SWCard = props => {
   return (
-    <div>
+    <div className="characterCards">
       <h2>Character: {props.name}</h2>
       <p>Hair Color: {props.head_fuzz}</p>
       <p>{props.banana}</p>
