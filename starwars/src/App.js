@@ -11,14 +11,14 @@ const App = () => {
   // sync up with, if any.
 
   const [people, setPeople] = useState([])
-  console.log(people.results)
+  console.log(people)
 
   useEffect(() => {
     axios
       .get('https://swapi.co/api/people/') 
       .then(response => {
         console.log(`Response: ${response.data.results}`)
-        setPeople(response.data)
+        setPeople(response.data.results)
       })
       .catch(error => {
         console.log(error)
@@ -30,7 +30,8 @@ const SWCard = props => {
   return (
     <div>
       <h2>Character: {props.name}</h2>
-      <p>Hair Color: {props.hair_color}</p>
+      <p>Hair Color: {props.head_fuzz}</p>
+      <p>{props.banana}</p>
     </div>
   )
 }
@@ -38,13 +39,13 @@ const SWCard = props => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      {people.results.map((person, i) => {
+      {people.map((person, banana) => {
         return(
           <div>
             <SWCard
-              key = {person.i}
-              character = {person.name}
-              hair = {person.hair_color}
+              banana = {banana}
+              name = {person.name}
+              head_fuzz = {person.hair_color}
               />
           </div>
         )
