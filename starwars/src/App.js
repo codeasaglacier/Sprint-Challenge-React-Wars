@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import Styled from 'styled-components';
+
+
+const Card = Styled.div`
+  color: #443e3e;
+  text-shadow: 1px 1px 5px #fff;
+  border: 1px dotted #443e3e;
+  border-radius: 20px;
+  margin: 10px 150px;
+`
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -28,15 +38,16 @@ const App = () => {
 
 const SWCard = props => {
   return (
-    <div className="characterCards">
-      <h2>Character: {props.name}</h2>
-      <p>Height: {props.height}</p>
-      <p>Mass: {props.mass}</p>
-      <p>Gender: {props.gender}</p>
-      <p>Hair Color: {props.head_fuzz}</p>
-      <p>Eye Color: {props.eye_color}</p>
-      <p>{props.banana}</p>
-    </div>
+    // <div className="characterCards">
+    <Card>
+    <h2>Character: {props.name}</h2>
+    <p>Height: {props.height}</p>
+    <p>Mass: {props.mass}</p>
+    <p>Gender: {props.gender}</p>
+    <p>Hair Color: {props.head_fuzz}</p>
+    <p>Eye Color: {props.eye_color}</p>
+    <p>{props.banana}</p>
+    </Card>
   )
 }
 

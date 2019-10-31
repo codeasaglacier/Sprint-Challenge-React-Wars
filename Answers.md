@@ -14,8 +14,8 @@ It is the data the functions use to render the page
 
 1. Describe props.
 
-A component used to pass state from component to component.
+A object used to pass state from component to component.
 
 1. What are side effects, and how do you sync effects in a React component to state or prop changes?
 
-Anything affecting some other thing outside the scope of the function itself. Side effectscan be managed using the useEffect hook. 
+Anything affecting some other thing outside the scope of the function itself. Side effects can be managed using the useEffect hook. 
