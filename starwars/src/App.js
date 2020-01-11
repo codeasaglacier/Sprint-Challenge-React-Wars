@@ -6,11 +6,32 @@ import Styled from 'styled-components';
 
 const Card = Styled.div`
   color: #443e3e;
+  background: rgba(255, 255, 255, 0.6);
   text-shadow: 1px 1px 5px #fff;
   border: 1px dotted #443e3e;
   border-radius: 20px;
-  margin: 10px 150px;
+  margin: 10px;
+  width: 250px;
 `
+
+const Cards = Styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+`
+
+const SWCard = props => {
+  return (
+    <div>
+      <h2>{props.person.name}</h2>
+      <p>Height: {props.person.height}</p>
+      <p>Mass: {props.person.mass}</p>
+      <p>Gender: {props.person.gender}</p>
+      <p>Hair Color: {props.person.hair_color}</p>
+      <p>Eye Color: {props.person.eye_color}</p>
+    </div>
+  )
+}
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -25,7 +46,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('https://swapi.co/api/people/') 
+    .get('https://swapi.co/api/people/') 
       .then(response => {
         console.log(`Response: ${response.data.results}`)
         setPeople(response.data.results)
@@ -36,39 +57,17 @@ const App = () => {
       )
     }, [])
 
-const SWCard = props => {
-  return (
-    // <div className="characterCards">
-    <Card>
-    <h2>Character: {props.name}</h2>
-    <p>Height: {props.height}</p>
-    <p>Mass: {props.mass}</p>
-    <p>Gender: {props.gender}</p>
-    <p>Hair Color: {props.head_fuzz}</p>
-    <p>Eye Color: {props.eye_color}</p>
-    <p>{props.banana}</p>
-    </Card>
-  )
-}
-
+    
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      {people.map((person, banana) => {
-        return(
-          <div>
-            <SWCard
-              banana = {banana}
-              name = {person.name}
-              height = {person.height}
-              mass = {person.mass}
-              gender = {person.gender}
-              head_fuzz = {person.hair_color}
-              eye_color = {person.eye_color}
-              />
-          </div>
-        )
-      })}
+        <Cards>
+          {people.map(person => (
+            <Card>
+              <SWCard person = {person}/>
+            </Card>
+          ))}
+        </Cards>
     </div>
   );
 }
