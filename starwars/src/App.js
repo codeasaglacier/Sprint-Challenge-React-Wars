@@ -80,12 +80,12 @@ const App = () => {
           ))}
         </Cards>
 
-        {next && (
-          <Button onClick = {() => setCurrent(next)}>Next Page</Button>
-        )}
-
         {previous && (
           <Button onClick = {() => setCurrent(previous)}>Previous Page</Button>
+        )}
+        
+        {next && (
+          <Button onClick = {() => setCurrent(next)}>Next Page</Button>
         )}
     </div>
   );
